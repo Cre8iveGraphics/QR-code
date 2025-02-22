@@ -73,7 +73,9 @@
       height: 50px;
       transition: transform 0.3s ease;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.5); /* Added border */
+      border-radius: 10px; /* Rounded corners */
+      padding: 5px; /* Padding inside the border */
     }
 
     .payment-icons img:hover {
@@ -133,16 +135,28 @@
       margin: 1.5rem 0;
     }
 
+    .social-media-icons a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .social-media-icons a:hover {
+      transform: scale(1.1);
+    }
+
     .social-media-icons img {
       width: 40px;
       height: 40px;
-      transition: transform 0.3s ease;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
     }
 
-    .social-media-icons img:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+    .social-media-icons span {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
     }
 
     /* Animations */
@@ -186,9 +200,9 @@
     </audio>
     <button class="pay-button" id="pay-button">Pay Now</button>
     <div class="payment-icons">
-      <img src="phonepe.png" alt="PhonePe" onclick="redirectToPhonePe()">
-      <img src="paytm.png" alt="Paytm" onclick="redirectToPaytm()">
-      <img src="google-pay.png" alt="Google Pay" onclick="redirectToGooglePay()">
+      <img src="phonepe.png" alt="PhonePe">
+      <img src="paytm.png" alt="Paytm">
+      <img src="google-pay.png" alt="Google Pay">
     </div>
     <div class="qr-code">
       <img src="qr-code.png" alt="QR Code">
@@ -196,9 +210,18 @@
     </div>
     <a href="https://wa.me/9284969878?text=Get%20more%20info%20about%20the%20Talking%20QR%20code%20Payment%20System" class="whatsapp-button">Message on WhatsApp</a>
     <div class="social-media-icons">
-      <a href="https://www.instagram.com/cre8ive_graphics/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-      <a href="https://www.facebook.com/Cre8iveGraphic/" target="_blank"><img src="facebook.png" alt="Facebook"></a>
-      <a href="https://cre8ivegraphics.github.io/Cre8ive_Graphics/" target="_blank"><img src="website.png" alt="Website"></a>
+      <a href="https://www.instagram.com/cre8ive_graphics/" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/Cre8iveGraphic/" target="_blank">
+        <img src="facebook.png" alt="Facebook">
+        <span>Facebook</span>
+      </a>
+      <a href="https://cre8ivegraphics.github.io/Cre8ive_Graphics/" target="_blank">
+        <img src="website.png" alt="Website">
+        <span>Website</span>
+      </a>
     </div>
     <div class="footer">
       <p>Powered by <strong>Cre8ive Graphics</strong> | Contact: 9284969878</p>
@@ -206,7 +229,7 @@
   </div>
 
   <script>
-    // Auto-play greeting audio
+    // Auto-play greeting audio on page load
     window.onload = function() {
       const audio = document.getElementById('greeting-audio');
       audio.muted = false; // Unmute the audio
@@ -226,36 +249,6 @@
         alert('Please use a mobile device to make the payment.\n\nUPI ID: 9284969878@ybl\nName: Cre8ive Graphics');
       }
     });
-
-    // Redirect to PhonePe
-    function redirectToPhonePe() {
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile) {
-        window.location.href = 'phonepe://';
-      } else {
-        alert('Please open this page on a mobile device to use PhonePe.');
-      }
-    }
-
-    // Redirect to Paytm
-    function redirectToPaytm() {
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile) {
-        window.location.href = 'paytmmp://';
-      } else {
-        alert('Please open this page on a mobile device to use Paytm.');
-      }
-    }
-
-    // Redirect to Google Pay
-    function redirectToGooglePay() {
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile) {
-        window.location.href = 'tez://';
-      } else {
-        alert('Please open this page on a mobile device to use Google Pay.');
-      }
-    }
   </script>
 </body>
 </html>
